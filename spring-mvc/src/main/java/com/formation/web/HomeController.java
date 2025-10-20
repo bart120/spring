@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 public class HomeController {
     @GetMapping("/")
     public String index(Model model) {
+        model.addAttribute("title", "Accueil");
         model.addAttribute("msg", "Hello Spring MVC (Jetty 11) !");
         return "index";
     }
