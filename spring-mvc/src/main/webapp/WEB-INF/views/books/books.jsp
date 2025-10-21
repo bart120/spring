@@ -9,6 +9,7 @@
                 <th>Titre</th>
                 <th>Auteur</th>
                 <th>Année</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,8 @@
                     <td>${book.title}</td>
                     <td>${book.author}</td>
                     <td>${book.year}</td>
+                    <td><a class="btn btn-secondary" href="/books/${book.id}">Voir</a></td>
+                    <td><a class="btn btn-danger" href="/books/delete/${book.id}">Supprimer</a></td>
                 </tr>
             </c:forEach>
         </tbody>
