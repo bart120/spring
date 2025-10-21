@@ -2,6 +2,7 @@ package com.formation.api.mappers;
 
 import com.formation.api.dto.BookCreateDto;
 import com.formation.api.dto.BookResponseDto;
+import com.formation.api.dto.BookUpdateDto;
 import com.formation.models.Book;
 
 public class BookMapper {
@@ -20,5 +21,11 @@ public class BookMapper {
         book.setAuthor(dto.getAuthor());
         book.setYear(dto.getYear());
         return book;
+    }
+
+    public static void applyUpdate(BookUpdateDto dto, Book book) {
+        book.setTitle(dto.getTitle());
+        book.setAuthor(dto.getAuthor());
+        book.setYear(dto.getYear());
     }
 }
