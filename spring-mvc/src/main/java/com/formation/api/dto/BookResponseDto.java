@@ -3,10 +3,10 @@ package com.formation.api.dto;
 public class BookResponseDto {
     private Long id;
     private String title;
-    private String author;
+    private AuthorResponseDto author;
     private Integer year;
 
-    public BookResponseDto(Long id, String title, String author, Integer year) {
+    public BookResponseDto(Long id, String title, AuthorResponseDto author, Integer year) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -21,7 +21,7 @@ public class BookResponseDto {
         return title;
     }
 
-    public String getAuthor() {
+    public AuthorResponseDto getAuthor() {
         return author;
     }
 

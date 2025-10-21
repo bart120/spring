@@ -12,8 +12,12 @@ public class BookUpdateDto {
     @Size(min = 1, max = 200, message = "Le titre doit faire entre 1 et 200 caractères")
     private String title;
 
-    @NotBlank(message = "L'auteur est obligatoire")
-    private String author;
+    /*
+     * @NotBlank(message = "L'auteur est obligatoire")
+     * private String author;
+     */
+    @NotNull(message = "L'auteur est obligatoire")
+    private Long authorId;
 
     @Positive(message = "L'année doit être un entier positif")
     @Min(value = 1800, message = "L'année doit être supérieure à 1800")
@@ -22,9 +26,9 @@ public class BookUpdateDto {
     public BookUpdateDto() {
     }
 
-    public BookUpdateDto(String title, String author, Integer year) {
+    public BookUpdateDto(String title, Long authorId, Integer year) {
         this.title = title;
-        this.author = author;
+        this.authorId = authorId;
         this.year = year;
     }
 
@@ -32,8 +36,8 @@ public class BookUpdateDto {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
+    public Long getAuthorId() {
+        return authorId;
     }
 
     public Integer getYear() {

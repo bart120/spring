@@ -2,6 +2,7 @@ package com.formation.api.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -10,8 +11,13 @@ public class BookCreateDto {
     @Size(min = 1, max = 200, message = "Le titre doit faire entre 1 et 200 caractères")
     private String title;
 
-    @NotBlank(message = "L'auteur est obligatoire")
-    private String author;
+    /*
+     * @NotBlank(message = "L'auteur est obligatoire")
+     * private String author;
+     */
+
+    @NotNull
+    private Long authorId;
 
     @Positive(message = "L'année doit être un entier positif")
     @Min(value = 1800, message = "L'année doit être supérieure à 1800")
@@ -20,9 +26,9 @@ public class BookCreateDto {
     public BookCreateDto() {
     }
 
-    public BookCreateDto(String title, String author, Integer year) {
+    public BookCreateDto(String title, Long authorId, Integer year) {
         this.title = title;
-        this.author = author;
+        this.authorId = authorId;
         this.year = year;
     }
 
@@ -30,8 +36,8 @@ public class BookCreateDto {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
+    public Long getAuthorId() {
+        return authorId;
     }
 
     public Integer getYear() {
