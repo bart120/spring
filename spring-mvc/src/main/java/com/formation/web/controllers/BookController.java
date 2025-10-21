@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.formation.models.Book;
 import com.formation.repo.BookRepository;
-import com.formation.web.models.Book;
 import com.formation.web.services.BookService;
 
 @Controller

@@ -1,4 +1,4 @@
-package com.formation.web.models;
+package com.formation.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

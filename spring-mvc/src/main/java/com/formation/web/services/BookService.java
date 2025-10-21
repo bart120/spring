@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.formation.web.models.Book;
+import com.formation.models.Book;
 
 @Service
 public class BookService {

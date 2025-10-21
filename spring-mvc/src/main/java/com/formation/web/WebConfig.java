@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.formation.web")
+@ComponentScan(basePackages = { "com.formation.web", "com.formation.api" })
 @Import(PersistenceConfig.class)
 public class WebConfig implements WebMvcConfigurer {
     @Override
