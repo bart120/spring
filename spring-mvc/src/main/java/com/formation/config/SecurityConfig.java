@@ -30,9 +30,9 @@ public class SecurityConfig {
                                                                 "/resources/**")
                                                 .permitAll()
                                                 .requestMatchers("/login").permitAll()
-                                                .requestMatchers("/api/**").authenticated()
-                                                .requestMatchers("/books/list/**").authenticated()
-                                                .requestMatchers("/books/add/**").hasRole("ADMIN")
+                                                .requestMatchers("/api/**").permitAll()
+                                                .requestMatchers("/books/**").authenticated()
+                                                // .requestMatchers("/books/add/**").hasRole("ADMIN")
                                                 .anyRequest().permitAll())
 
                                 .formLogin(form -> form

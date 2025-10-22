@@ -24,6 +24,8 @@ import com.formation.api.dto.BookCreateDto;
 import com.formation.api.dto.BookResponseDto;
 import com.formation.api.dto.BookUpdateDto;
 import com.formation.api.mappers.BookMapper;
+import com.formation.messaging.BookCreatedEvent;
+import com.formation.publishers.BookEventPublisher;
 import com.formation.repo.BookRepository;
 
 import jakarta.validation.Valid;
@@ -33,9 +35,11 @@ import jakarta.validation.Valid;
 public class BookRestController {
 
     private final BookRepository bookRepository;
+    private final BookEventPublisher bookEventPublisher;
 
-    public BookRestController(BookRepository bookRepository) {
+    public BookRestController(BookRepository bookRepository, BookEventPublisher bookEventPublisher) {
         this.bookRepository = bookRepository;
+        this.bookEventPublisher = bookEventPublisher;
     }
 
     /*
@@ -94,6 +98,9 @@ public class BookRestController {
     @PostMapping
     public ResponseEntity<BookResponseDto> create(@Valid @RequestBody BookCreateDto dto) {
         var savedBook = bookRepository.save(BookMapper.fromCreate(dto));
+
+        bookEventPublisher.publishCreated(new BookCreatedEvent(savedBook.getId(), savedBook.getTitle()));
+
         return ResponseEntity.created(URI.create("/api/books/" + savedBook.getId()))
                 .body(BookMapper.toDto(savedBook));
     }

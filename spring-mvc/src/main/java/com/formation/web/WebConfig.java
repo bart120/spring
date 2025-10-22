@@ -15,6 +15,7 @@ import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import com.formation.config.DataInitializer;
 import com.formation.config.OpenApiManualConfig;
 import com.formation.config.PersistenceConfig;
+import com.formation.config.RabbitConfig;
 import com.formation.config.SecurityConfig;
 
 import org.springframework.context.annotation.ComponentScan;
@@ -22,8 +23,10 @@ import org.springframework.context.annotation.ComponentScan;
 @Configuration
 @EnableWebMvc
 @EnableSpringDataWebSupport
-@ComponentScan(basePackages = { "com.formation.web", "com.formation.api" })
-@Import({ PersistenceConfig.class, OpenApiManualConfig.class, SecurityConfig.class, DataInitializer.class })
+@ComponentScan(basePackages = { "com.formation.web", "com.formation.api",
+        "com.formation.publishers", "com.formation.listeners" })
+@Import({ PersistenceConfig.class, OpenApiManualConfig.class, SecurityConfig.class,
+        DataInitializer.class, RabbitConfig.class })
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
