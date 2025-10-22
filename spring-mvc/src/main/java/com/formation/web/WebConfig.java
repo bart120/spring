@@ -12,9 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 
+import com.formation.config.DataInitializer;
 import com.formation.config.OpenApiManualConfig;
 import com.formation.config.PersistenceConfig;
 import com.formation.config.SecurityConfig;
+
+import javax.xml.crypto.Data;
 
 import org.springframework.context.annotation.ComponentScan;
 
@@ -22,7 +25,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableWebMvc
 @EnableSpringDataWebSupport
 @ComponentScan(basePackages = { "com.formation.web", "com.formation.api" })
-@Import({ PersistenceConfig.class, OpenApiManualConfig.class, SecurityConfig.class })
+@Import({ PersistenceConfig.class, OpenApiManualConfig.class, SecurityConfig.class, DataInitializer.class })
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
