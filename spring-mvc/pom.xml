@@ -131,6 +131,12 @@
       <artifactId>spring-security-core</artifactId>
       <version>6.3.3</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-test</artifactId>
+      <version>6.3.3</version>
+      <scope>test</scope>
+    </dependency>
 
     <!-- RabbitMQ -->
     <dependency>
@@ -144,7 +150,36 @@
       <version>3.1.6</version>
     </dependency>
 
-    
+    <!-- JUnit 5 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.11.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Spring Test (MockMvc, SpringExtension, etc.) -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--<dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>test</scope>
+    </dependency> -->
+
+    <!-- Mockito (mocks) -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.13.0</version>
+      <scope>test</scope>
+    </dependency>
 
 
   </dependencies>
@@ -160,6 +195,15 @@
           <compilerArgs>
             <arg>-parameters</arg>
           </compilerArgs>
+        </configuration>
+      </plugin>
+
+      <!-- JUnit -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.0</version>
+        <configuration>
+          <useModulePath>false</useModulePath>
         </configuration>
       </plugin>
 
