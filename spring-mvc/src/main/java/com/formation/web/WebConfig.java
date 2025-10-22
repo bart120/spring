@@ -17,8 +17,6 @@ import com.formation.config.OpenApiManualConfig;
 import com.formation.config.PersistenceConfig;
 import com.formation.config.SecurityConfig;
 
-import javax.xml.crypto.Data;
-
 import org.springframework.context.annotation.ComponentScan;
 
 @Configuration
@@ -31,6 +29,11 @@ public class WebConfig implements WebMvcConfigurer {
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/views/", ".jsp");
 
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
     }
 
     @Override
