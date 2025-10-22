@@ -26,7 +26,7 @@ public class SecurityConfig {
         httpSecurity
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**",
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/webjars/**",
                                 "/resources/**")
                         .permitAll()
                         .requestMatchers("/login").permitAll()
