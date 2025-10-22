@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.formation.config.OpenApiManualConfig;
 import com.formation.config.PersistenceConfig;
+import com.formation.config.SecurityConfig;
 
 import org.springframework.context.annotation.ComponentScan;
 
@@ -19,7 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableWebMvc
 @EnableSpringDataWebSupport
 @ComponentScan(basePackages = { "com.formation.web", "com.formation.api" })
-@Import({ PersistenceConfig.class, OpenApiManualConfig.class })
+@Import({ PersistenceConfig.class, OpenApiManualConfig.class, SecurityConfig.class })
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
